@@ -63,7 +63,7 @@ public class VersionParameterDefinition extends
         List<VersionLabel> items = new ArrayList<VersionLabel>();
         if (r != null) {
             File localRepo = RepositoryConfiguration.get().getLocalRepoPath();
-            Aether aether = new Aether(DESCRIPTOR.getRepos(), localRepo);
+            Aether aether = new Aether(new ArrayList<Repository>(java.util.Arrays.asList(r)), localRepo);
             try {
                 // Get the versions
                 VersionRangeResultWithLatest versionsWithLatest = aether.resolveVersions(groupid, artifactid);
